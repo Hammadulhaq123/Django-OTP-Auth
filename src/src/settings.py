@@ -1,8 +1,18 @@
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# Sending Sms:
+
+env = environ.Env()
+
+environ.Env.read_env(BASE_DIR / '.env')
+SMS_API_KEY = env("SMS_API_KEY")
+
 
 MAX_OTP_TRY = 3
 
